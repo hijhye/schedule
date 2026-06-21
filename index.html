@@ -1799,39 +1799,15 @@
         }
       }
     </style>
-
+  
     <style id="responsive-final-upgrade">
       /* 모바일은 데스크톱 축소판이 아니라 별도 정보 구조로 재설계 */
-      html,
-      body {
-        max-width: 100%;
-        overflow-x: hidden;
-      }
-      body {
-        -webkit-text-size-adjust: 100%;
-      }
-      button,
-      input,
-      select,
-      textarea {
-        min-width: 0;
-      }
-      .app-header,
-      .main,
-      .dashboard,
-      .calendar-card,
-      .right-column {
-        min-width: 0;
-      }
-      .calendar-grid,
-      .weekdays {
-        min-width: 0;
-      }
-      .day,
-      .calendar-event,
-      .schedule-name {
-        min-width: 0;
-      }
+      html, body { max-width: 100%; overflow-x: hidden; }
+      body { -webkit-text-size-adjust: 100%; }
+      button, input, select, textarea { min-width: 0; }
+      .app-header, .main, .dashboard, .calendar-card, .right-column { min-width: 0; }
+      .calendar-grid, .weekdays { min-width: 0; }
+      .day, .calendar-event, .schedule-name { min-width: 0; }
 
       @media (max-width: 1180px) {
         .app-header {
@@ -1849,29 +1825,21 @@
           grid-template-columns: minmax(0, 1fr) 300px;
           gap: 26px;
         }
-        .day {
-          min-height: 104px;
-        }
+        .day { min-height: 104px; }
       }
 
       @media (max-width: 960px) {
-        .dashboard {
-          grid-template-columns: 1fr;
-        }
+        .dashboard { grid-template-columns: 1fr; }
         .right-column {
           position: static;
           grid-template-columns: repeat(2, minmax(0, 1fr));
           gap: 24px;
         }
-        .focus-card {
-          grid-column: 1 / -1;
-        }
+        .focus-card { grid-column: 1 / -1; }
       }
 
       @media (max-width: 760px) {
-        body {
-          background: #f7f8fb;
-        }
+        body { background: #f7f8fb; }
 
         .app-header {
           position: sticky;
@@ -1888,7 +1856,7 @@
           border: 0;
           border-bottom: 1px solid #e2e5ed;
           border-radius: 0;
-          background: rgba(255, 255, 255, 0.96);
+          background: rgba(255, 255, 255, .96);
           box-shadow: none;
           backdrop-filter: blur(16px);
           -webkit-backdrop-filter: blur(16px);
@@ -1906,7 +1874,7 @@
         .wordmark {
           align-self: center;
           font-size: 18px;
-          letter-spacing: 0.04em;
+          letter-spacing: .04em;
         }
 
         .header-account {
@@ -1916,9 +1884,7 @@
 
         .sync-state,
         .account-name,
-        .account-photo {
-          display: none !important;
-        }
+        .account-photo { display: none !important; }
 
         .login-btn,
         .logout-btn {
@@ -1943,9 +1909,7 @@
           scrollbar-width: none;
         }
 
-        .top-nav::-webkit-scrollbar {
-          display: none;
-        }
+        .top-nav::-webkit-scrollbar { display: none; }
 
         .top-nav button {
           flex: 0 0 auto;
@@ -1973,16 +1937,9 @@
           padding: 0;
         }
 
-        .topbar::after {
-          display: none;
-        }
-        .topbar h1 {
-          margin-bottom: 5px;
-          font-size: 27px;
-        }
-        .today-text {
-          font-size: 11px;
-        }
+        .topbar::after { display: none; }
+        .topbar h1 { margin-bottom: 5px; font-size: 27px; }
+        .today-text { font-size: 11px; }
 
         .add-btn {
           flex: 0 0 auto;
@@ -2006,9 +1963,7 @@
           scrollbar-width: none;
         }
 
-        .summary-grid::-webkit-scrollbar {
-          display: none;
-        }
+        .summary-grid::-webkit-scrollbar { display: none; }
 
         .summary-card {
           flex: 0 0 158px;
@@ -2032,32 +1987,19 @@
           font-size: 27px;
         }
 
-        .dashboard {
-          gap: 34px;
-        }
+        .dashboard { gap: 34px; }
 
         .calendar-head {
           min-height: 0;
           padding: 0 0 13px;
         }
 
-        .calendar-head h2 {
-          font-size: 20px;
-        }
-        .calendar-head h2::before {
-          margin-bottom: 5px;
-        }
+        .calendar-head h2 { font-size: 20px; }
+        .calendar-head h2::before { margin-bottom: 5px; }
 
-        .month-control {
-          gap: 3px;
-        }
-        .icon-btn,
-        .today-btn {
-          height: 31px;
-        }
-        .icon-btn {
-          width: 31px;
-        }
+        .month-control { gap: 3px; }
+        .icon-btn, .today-btn { height: 31px; }
+        .icon-btn { width: 31px; }
 
         .weekdays {
           border-top: 1px solid #d8dce5;
@@ -2073,18 +2015,15 @@
 
         .day {
           position: relative;
-          min-height: 78px;
-          padding: 6px 4px 7px;
+          min-height: 96px;
+          padding: 6px 3px 7px;
           border-right: 1px solid #e2e5ec;
           border-top: 1px solid #e2e5ec;
+          overflow: hidden;
         }
 
-        .day:nth-child(7n + 1) {
-          border-left: 0;
-        }
-        .day:nth-child(7n) {
-          border-right: 0;
-        }
+        .day:nth-child(7n + 1) { border-left: 0; }
+        .day:nth-child(7n) { border-right: 0; }
 
         .day-number {
           width: 22px;
@@ -2097,29 +2036,35 @@
           flex-direction: column;
           gap: 3px;
           margin-top: 5px;
+          min-width: 0;
         }
 
         .calendar-event {
-          height: 4px;
-          padding: 0;
+          display: block;
+          width: 100%;
+          height: 18px;
+          min-width: 0;
+          padding: 3px 3px 3px 5px;
           border: 0;
-          border-radius: 999px;
-          font-size: 0;
-          opacity: 0.86;
+          border-left: 2px solid currentColor;
+          border-radius: 2px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          text-align: left;
+          font-size: 7.5px;
+          line-height: 12px;
+          font-weight: 800;
+          letter-spacing: -.03em;
+          opacity: 1;
         }
 
-        .calendar-event.work {
-          background: #4b93c9 !important;
-        }
-        .calendar-event.personal {
-          background: #8376d2 !important;
-        }
-        .calendar-event.loind {
-          background: #4aa0aa !important;
-        }
         .more-count {
-          padding: 0;
-          font-size: 8px;
+          padding: 0 2px;
+          color: #8c93a3;
+          font-size: 7px;
+          font-weight: 800;
+          line-height: 12px;
         }
 
         .right-column {
@@ -2127,9 +2072,7 @@
           gap: 30px;
         }
 
-        .focus-card {
-          grid-column: auto;
-        }
+        .focus-card { grid-column: auto; }
 
         .list-title,
         .focus-card h3 {
@@ -2141,13 +2084,8 @@
           padding: 13px 30px 13px 0;
         }
 
-        .schedule-meta {
-          gap: 4px;
-          margin-bottom: 7px;
-        }
-        .schedule-name {
-          font-size: 13px;
-        }
+        .schedule-meta { gap: 4px; margin-bottom: 7px; }
+        .schedule-name { font-size: 13px; }
 
         .modal-wrap {
           align-items: end;
@@ -2161,32 +2099,18 @@
           border-radius: 18px 18px 0 0;
         }
 
-        .modal-head {
-          margin-bottom: 17px;
-        }
-        .form-grid {
-          grid-template-columns: 1fr;
-          gap: 12px;
-        }
-        .field.full {
-          grid-column: auto;
-        }
-        .field input,
-        .field select,
-        .field textarea {
-          min-height: 46px;
-          font-size: 16px;
-        }
-        .field textarea {
-          min-height: 96px;
-        }
+        .modal-head { margin-bottom: 17px; }
+        .form-grid { grid-template-columns: 1fr; gap: 12px; }
+        .field.full { grid-column: auto; }
+        .field input, .field select, .field textarea { min-height: 46px; font-size: 16px; }
+        .field textarea { min-height: 96px; }
 
         .form-actions {
           position: sticky;
           bottom: calc(-18px - env(safe-area-inset-bottom));
           margin: 18px -18px 0;
           padding: 12px 18px calc(18px + env(safe-area-inset-bottom));
-          background: rgba(255, 255, 255, 0.97);
+          background: rgba(255, 255, 255, .97);
           border-top: 1px solid #e6e8ee;
         }
 
@@ -2198,14 +2122,8 @@
       }
 
       @media (max-width: 430px) {
-        .main {
-          padding-left: 12px;
-          padding-right: 12px;
-        }
-        .app-header {
-          padding-left: 12px;
-          padding-right: 12px;
-        }
+        .main { padding-left: 12px; padding-right: 12px; }
+        .app-header { padding-left: 12px; padding-right: 12px; }
         .top-nav {
           width: calc(100% + 24px);
           margin-left: -12px;
@@ -2213,328 +2131,175 @@
           padding-right: 12px;
           gap: 18px;
         }
-        .topbar {
-          gap: 10px;
-        }
-        .topbar h1 {
-          font-size: 24px;
-        }
-        .add-btn {
-          padding: 0 10px;
-        }
-        .summary-grid {
-          width: calc(100% + 12px);
-        }
-        .summary-card {
-          flex-basis: 145px;
-        }
-        .calendar-head h2 {
-          font-size: 18px;
-        }
-        .day {
-          min-height: 70px;
-          padding-left: 3px;
-          padding-right: 3px;
-        }
-        .weekday {
-          font-size: 8px;
-        }
+        .topbar { gap: 10px; }
+        .topbar h1 { font-size: 24px; }
+        .add-btn { padding: 0 10px; }
+        .summary-grid { width: calc(100% + 12px); }
+        .summary-card { flex-basis: 145px; }
+        .calendar-head h2 { font-size: 18px; }
+        .day { min-height: 70px; padding-left: 3px; padding-right: 3px; }
+        .weekday { font-size: 8px; }
       }
 
       @media (max-width: 350px) {
-        .wordmark {
-          font-size: 16px;
-        }
-        .login-btn,
-        .logout-btn {
-          padding: 0 8px;
-        }
-        .topbar h1 {
-          font-size: 22px;
-        }
-        .today-text {
-          font-size: 10px;
-        }
-        .add-btn {
-          font-size: 10px;
-        }
-        .summary-card {
-          flex-basis: 136px;
-        }
-        .day {
-          min-height: 66px;
-        }
+        .wordmark { font-size: 16px; }
+        .login-btn, .logout-btn { padding: 0 8px; }
+        .topbar h1 { font-size: 22px; }
+        .today-text { font-size: 10px; }
+        .add-btn { font-size: 10px; }
+        .summary-card { flex-basis: 136px; }
+        .day { min-height: 66px; }
       }
     </style>
+  
+<style id="category-settings-style">
+  .settings-btn{height:34px;padding:0 11px;border:1px solid #d8dce7;background:#fff;color:#343948;font-size:10px;font-weight:850;white-space:nowrap}
+  .settings-btn:hover{border-color:#989be0;color:#6265c8;background:#fafaff}
+  .category-manager{width:min(620px,100%)}
+  .category-help{margin:-5px 0 16px;color:#7b8291;font-size:11px;line-height:1.55}
+  .category-rows{display:grid;gap:8px}
+  .category-row{display:grid;grid-template-columns:28px 1fr 52px 70px;gap:8px;align-items:center;padding:10px;border:1px solid #e1e4ec;background:#fafbfc}
+  .category-drag{color:#9aa0ad;text-align:center;font-size:15px;cursor:grab}
+  .category-name-input{width:100%;height:38px;padding:0 10px;border:1px solid #cfd4df;background:#fff;outline:none}
+  .category-color-input{width:42px;height:38px;padding:3px;border:1px solid #cfd4df;background:#fff}
+  .category-order-actions{display:flex;gap:4px}
+  .category-order-actions button{width:32px;height:32px;border:1px solid #d6dae4;background:#fff;color:#555d6c}
+  .category-order-actions button:disabled{opacity:.25;cursor:not-allowed}
+  .category-preview{display:inline-flex;align-items:center;gap:7px;font-size:10px;color:#6c7381}
+  .category-preview-dot{width:8px;height:8px;background:var(--cat-color);display:inline-block}
+  @media(max-width:720px){.settings-btn{height:32px;padding:0 9px}.category-manager{align-self:end;width:100%;max-height:88vh;border-radius:16px 16px 0 0}.category-row{grid-template-columns:24px minmax(0,1fr) 44px 66px;padding:8px;gap:6px}.category-name-input{font-size:16px}.category-color-input{width:38px}.category-help{font-size:10px}}
+</style>
 
-    <style id="category-settings-style">
-      .settings-btn {
-        height: 34px;
-        padding: 0 11px;
-        border: 1px solid #d8dce7;
-        background: #fff;
-        color: #343948;
-        font-size: 10px;
-        font-weight: 850;
-        white-space: nowrap;
-      }
-      .settings-btn:hover {
-        border-color: #989be0;
-        color: #6265c8;
-        background: #fafaff;
-      }
-      .category-manager {
-        width: min(620px, 100%);
-      }
-      .category-help {
-        margin: -5px 0 16px;
-        color: #7b8291;
-        font-size: 11px;
-        line-height: 1.55;
-      }
-      .category-rows {
-        display: grid;
-        gap: 8px;
-      }
-      .category-row {
-        display: grid;
-        grid-template-columns: 28px 1fr 52px 70px;
-        gap: 8px;
-        align-items: center;
-        padding: 10px;
-        border: 1px solid #e1e4ec;
-        background: #fafbfc;
-      }
-      .category-drag {
-        color: #9aa0ad;
-        text-align: center;
-        font-size: 15px;
-        cursor: grab;
-      }
-      .category-name-input {
-        width: 100%;
-        height: 38px;
-        padding: 0 10px;
-        border: 1px solid #cfd4df;
-        background: #fff;
-        outline: none;
-      }
-      .category-color-input {
-        width: 42px;
-        height: 38px;
-        padding: 3px;
-        border: 1px solid #cfd4df;
-        background: #fff;
-      }
-      .category-order-actions {
-        display: flex;
-        gap: 4px;
-      }
-      .category-order-actions button {
-        width: 32px;
-        height: 32px;
-        border: 1px solid #d6dae4;
-        background: #fff;
-        color: #555d6c;
-      }
-      .category-order-actions button:disabled {
-        opacity: 0.25;
-        cursor: not-allowed;
-      }
-      .category-preview {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        font-size: 10px;
-        color: #6c7381;
-      }
-      .category-preview-dot {
-        width: 8px;
-        height: 8px;
-        background: var(--cat-color);
-        display: inline-block;
-      }
-      @media (max-width: 720px) {
-        .settings-btn {
-          height: 32px;
-          padding: 0 9px;
-        }
-        .category-manager {
-          align-self: end;
-          width: 100%;
-          max-height: 88vh;
-          border-radius: 16px 16px 0 0;
-        }
-        .category-row {
-          grid-template-columns: 24px minmax(0, 1fr) 44px 66px;
-          padding: 8px;
-          gap: 6px;
-        }
-        .category-name-input {
-          font-size: 16px;
-        }
-        .category-color-input {
-          width: 38px;
-        }
-        .category-help {
-          font-size: 10px;
-        }
-      }
-    </style>
+<style id="mobile-headerless-card-nav">
+  .mobile-tools { display: none; }
 
-    <style id="mobile-headerless-card-nav">
-      .mobile-tools {
-        display: none;
-      }
+  @media (max-width: 760px) {
+    .app-header { display: none !important; }
 
-      @media (max-width: 760px) {
-        .app-header {
-          display: none !important;
-        }
+    .main {
+      padding-top: calc(20px + env(safe-area-inset-top));
+    }
 
-        .main {
-          padding-top: calc(20px + env(safe-area-inset-top));
-        }
+    .topbar {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: start;
+      margin-bottom: 18px;
+    }
 
-        .topbar {
-          display: grid;
-          grid-template-columns: minmax(0, 1fr) auto;
-          align-items: start;
-          margin-bottom: 18px;
-        }
+    .topbar h1 {
+      font-size: 24px;
+      line-height: 1.15;
+    }
 
-        .topbar h1 {
-          font-size: 24px;
-          line-height: 1.15;
-        }
+    .mobile-tools {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 11px;
+    }
 
-        .mobile-tools {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 6px;
-          margin-top: 11px;
-        }
+    .mobile-tool-btn {
+      min-height: 30px;
+      padding: 0 9px;
+      border: 1px solid #d9dde7;
+      border-radius: 4px;
+      background: #fff;
+      color: #444b5a;
+      font-size: 10px;
+      font-weight: 800;
+    }
 
-        .mobile-tool-btn {
-          min-height: 30px;
-          padding: 0 9px;
-          border: 1px solid #d9dde7;
-          border-radius: 4px;
-          background: #fff;
-          color: #444b5a;
-          font-size: 10px;
-          font-weight: 800;
-        }
+    .mobile-tool-btn.muted {
+      color: #7b8290;
+      background: transparent;
+    }
 
-        .mobile-tool-btn.muted {
-          color: #7b8290;
-          background: transparent;
-        }
+    .add-btn {
+      min-height: 38px;
+      margin-top: 1px;
+    }
 
-        .add-btn {
-          min-height: 38px;
-          margin-top: 1px;
-        }
+    .summary-grid {
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+      margin: 0 0 26px;
+      padding: 0;
+      overflow: visible;
+      scroll-snap-type: none;
+    }
 
-        .summary-grid {
-          width: 100%;
-          display: grid;
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          gap: 8px;
-          margin: 0 0 26px;
-          padding: 0;
-          overflow: visible;
-          scroll-snap-type: none;
-        }
+    .summary-card {
+      position: relative;
+      flex: none;
+      width: auto;
+      min-height: 94px;
+      padding: 14px 13px 13px;
+      cursor: pointer;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: border-color .16s ease, background .16s ease, transform .12s ease;
+    }
 
-        .summary-card {
-          position: relative;
-          flex: none;
-          width: auto;
-          min-height: 94px;
-          padding: 14px 13px 13px;
-          cursor: pointer;
-          user-select: none;
-          -webkit-tap-highlight-color: transparent;
-          transition: border-color 0.16s ease, background 0.16s ease,
-            transform 0.12s ease;
-        }
+    .summary-card::before {
+      content: "보기";
+      position: absolute;
+      right: 11px;
+      bottom: 10px;
+      color: #a0a6b3;
+      font-size: 8px;
+      font-weight: 850;
+      letter-spacing: .03em;
+    }
 
-        .summary-card::before {
-          content: "보기";
-          position: absolute;
-          right: 11px;
-          bottom: 10px;
-          color: #a0a6b3;
-          font-size: 8px;
-          font-weight: 850;
-          letter-spacing: 0.03em;
-        }
+    .summary-card:active { transform: scale(.985); }
 
-        .summary-card:active {
-          transform: scale(0.985);
-        }
+    .summary-card.mobile-active {
+      border-color: #787add !important;
+      background: #f4f4ff;
+      box-shadow: inset 0 0 0 1px rgba(120, 122, 221, .12);
+    }
 
-        .summary-card.mobile-active {
-          border-color: #787add !important;
-          background: #f4f4ff;
-          box-shadow: inset 0 0 0 1px rgba(120, 122, 221, 0.12);
-        }
+    .summary-card.mobile-active::before {
+      content: "선택됨";
+      color: #6669cf;
+    }
 
-        .summary-card.mobile-active::before {
-          content: "선택됨";
-          color: #6669cf;
-        }
+    .summary-card span {
+      min-height: 26px;
+      padding-right: 4px;
+    }
 
-        .summary-card span {
-          min-height: 26px;
-          padding-right: 4px;
-        }
+    .summary-value { margin-top: 8px; }
+  }
 
-        .summary-value {
-          margin-top: 8px;
-        }
-      }
+  @media (max-width: 380px) {
+    .main { padding-left: 10px; padding-right: 10px; }
+    .topbar h1 { font-size: 22px; }
+    .summary-card { min-height: 88px; padding: 12px 11px; }
+    .summary-value { font-size: 25px; }
+  }
+</style>
 
-      @media (max-width: 380px) {
-        .main {
-          padding-left: 10px;
-          padding-right: 10px;
-        }
-        .topbar h1 {
-          font-size: 22px;
-        }
-        .summary-card {
-          min-height: 88px;
-          padding: 12px 11px;
-        }
-        .summary-value {
-          font-size: 25px;
-        }
-      }
-    </style>
-
-    <style id="mobile-login-fix">
-      [hidden] {
-        display: none !important;
-      }
-      @media (max-width: 760px) {
-        #mobileLoginBtn {
-          min-height: 40px;
-          padding: 0 14px;
-          border-color: #7276d8;
-          background: #7478dd;
-          color: #fff;
-          font-size: 12px;
-          touch-action: manipulation;
-          -webkit-tap-highlight-color: transparent;
-        }
-        #mobileLoginBtn:active {
-          transform: scale(0.98);
-        }
-      }
-    </style>
-  </head>
+<style id="mobile-login-fix">
+  [hidden] { display: none !important; }
+  @media (max-width: 760px) {
+    #mobileLoginBtn {
+      min-height: 40px;
+      padding: 0 14px;
+      border-color: #7276d8;
+      background: #7478dd;
+      color: #fff;
+      font-size: 12px;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    #mobileLoginBtn:active { transform: scale(.98); }
+  }
+</style>
+</head>
   <body>
     <div class="app">
       <header class="app-header">
@@ -2553,9 +2318,7 @@
           <div class="account-box" id="accountBox" hidden>
             <img class="account-photo" id="accountPhoto" alt="" hidden />
             <span class="account-name" id="accountName"></span>
-            <button class="settings-btn" id="categorySettingsBtn" type="button">
-              일정 설정
-            </button>
+            <button class="settings-btn" id="categorySettingsBtn" type="button">일정 설정</button>
             <button class="logout-btn" id="logoutBtn" type="button">
               로그아웃
             </button>
@@ -2569,68 +2332,32 @@
             <h1>일정 대시보드</h1>
             <div class="today-text" id="todayText"></div>
             <div class="mobile-tools" aria-label="모바일 계정 메뉴">
-              <button class="mobile-tool-btn" id="mobileLoginBtn" type="button">
-                Google 로그인
-              </button>
-              <button
-                class="mobile-tool-btn"
-                id="mobileSettingsBtn"
-                type="button"
-                hidden
-              >
-                일정 설정
-              </button>
-              <button
-                class="mobile-tool-btn muted"
-                id="mobileLogoutBtn"
-                type="button"
-                hidden
-              >
-                로그아웃
-              </button>
+              <button class="mobile-tool-btn" id="mobileLoginBtn" type="button">Google 로그인</button>
+              <button class="mobile-tool-btn" id="mobileSettingsBtn" type="button" hidden>일정 설정</button>
+              <button class="mobile-tool-btn muted" id="mobileLogoutBtn" type="button" hidden>로그아웃</button>
             </div>
           </div>
           <button class="add-btn" id="openModalBtn">＋ 일정 등록</button>
         </header>
 
         <section class="summary-grid">
-          <article
-            class="summary-card"
-            data-summary-action="today"
-            role="button"
-            tabindex="0"
-          >
+          <article class="summary-card" data-summary-action="today" role="button" tabindex="0">
             <span>오늘 일정</span>
             <div class="summary-value" id="todayCount">0<small>건</small></div>
           </article>
-          <article
-            class="summary-card"
-            data-summary-action="primary"
-            role="button"
-            tabindex="0"
-          >
+          <article class="summary-card" data-summary-action="primary" role="button" tabindex="0">
             <span id="weekPrimaryLabel">이번 주 캐스트피아 일정</span>
             <div class="summary-value" id="weekWorkCount">
               0<small>건</small>
             </div>
           </article>
-          <article
-            class="summary-card"
-            data-summary-action="other"
-            role="button"
-            tabindex="0"
-          >
+          <article class="summary-card" data-summary-action="other" role="button" tabindex="0">
             <span id="projectLabel">진행 중인 기타 일정</span>
             <div class="summary-value" id="projectCount">
               0<small>건</small>
             </div>
           </article>
-          <article
-            class="summary-card"
-            data-summary-action="due"
-            role="button"
-            tabindex="0"
-          >
+          <article class="summary-card" data-summary-action="due" role="button" tabindex="0">
             <span>7일 내 마감</span>
             <div class="summary-value" id="dueSoonCount">
               0<small>건</small>
@@ -2683,10 +2410,7 @@
 
             <article class="card focus-card">
               <h3>이번 달 일정 진행률</h3>
-              <p id="progressDescription">
-                첫 번째 카테고리를 제외한 일정의 완료 상태를 기준으로
-                계산합니다.
-              </p>
+              <p id="progressDescription">첫 번째 카테고리를 제외한 일정의 완료 상태를 기준으로 계산합니다.</p>
               <div class="focus-progress"><div id="progressBar"></div></div>
               <div class="focus-info">
                 <span id="progressText">완료 0 / 0</span>
@@ -2775,22 +2499,13 @@
       <div class="modal category-manager">
         <div class="modal-head">
           <h2>일정 카테고리 설정</h2>
-          <button class="close-btn" id="closeCategoryModalBtn" type="button">
-            ×
-          </button>
+          <button class="close-btn" id="closeCategoryModalBtn" type="button">×</button>
         </div>
-        <p class="category-help">
-          카테고리 이름과 색상, 노출 순서를 계정별로 저장합니다. 위에 있는
-          카테고리부터 메뉴와 일정 등록창에 표시됩니다.
-        </p>
+        <p class="category-help">카테고리 이름과 색상, 노출 순서를 계정별로 저장합니다. 위에 있는 카테고리부터 메뉴와 일정 등록창에 표시됩니다.</p>
         <div class="category-rows" id="categoryRows"></div>
         <div class="form-actions">
-          <button type="button" class="cancel-btn" id="cancelCategoryBtn">
-            취소
-          </button>
-          <button type="button" class="save-btn" id="saveCategoryBtn">
-            설정 저장
-          </button>
+          <button type="button" class="cancel-btn" id="cancelCategoryBtn">취소</button>
+          <button type="button" class="save-btn" id="saveCategoryBtn">설정 저장</button>
         </div>
       </div>
     </div>
@@ -2855,60 +2570,37 @@
         { id: "personal", name: "개인일정", color: "#8475d9", order: 1 },
         { id: "loind", name: "로인드일정", color: "#45a9b8", order: 2 },
       ];
-      let categories = defaultCategories.map((item) => ({ ...item }));
+      let categories = defaultCategories.map(item => ({ ...item }));
       let editingCategories = [];
       let db = null;
       let auth = null;
 
       const $ = (id) => document.getElementById(id);
 
+
       function sortedCategories() {
-        return [...categories].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+        return [...categories].sort((a,b) => (a.order ?? 0) - (b.order ?? 0));
       }
 
       function getCategory(id) {
-        return (
-          categories.find((item) => item.id === id) || {
-            id,
-            name: "기타 일정",
-            color: "#7c8494",
-            order: 999,
-          }
-        );
+        return categories.find(item => item.id === id) || { id, name: "기타 일정", color: "#7c8494", order: 999 };
       }
 
-      function hexToRgba(hex, alpha = 0.1) {
+      function hexToRgba(hex, alpha = .10) {
         const clean = String(hex || "#7c8494").replace("#", "");
-        const full =
-          clean.length === 3
-            ? clean
-                .split("")
-                .map((x) => x + x)
-                .join("")
-            : clean;
+        const full = clean.length === 3 ? clean.split("").map(x => x+x).join("") : clean;
         const num = parseInt(full, 16);
         if (Number.isNaN(num)) return `rgba(124,132,148,${alpha})`;
-        return `rgba(${(num >> 16) & 255},${(num >> 8) & 255},${
-          num & 255
-        },${alpha})`;
+        return `rgba(${(num>>16)&255},${(num>>8)&255},${num&255},${alpha})`;
       }
 
       function renderCategoryControls() {
         const items = sortedCategories();
         const nav = $("categoryNav");
-        nav.innerHTML =
-          `<button data-filter="all" class="${
-            currentFilter === "all" ? "active" : ""
-          }">전체</button>` +
-          items
-            .map(
-              (cat) =>
-                `<button data-filter="${cat.id}" class="${
-                  currentFilter === cat.id ? "active" : ""
-                }">${escapeHtml(cat.name)}</button>`
-            )
-            .join("");
-        nav.querySelectorAll("button").forEach((button) => {
+        nav.innerHTML = `<button data-filter="all" class="${currentFilter === "all" ? "active" : ""}">전체</button>` + items.map(cat =>
+          `<button data-filter="${cat.id}" class="${currentFilter === cat.id ? "active" : ""}">${escapeHtml(cat.name)}</button>`
+        ).join("");
+        nav.querySelectorAll("button").forEach(button => {
           button.addEventListener("click", () => {
             currentFilter = button.dataset.filter;
             renderCategoryControls();
@@ -2918,93 +2610,43 @@
 
         const typeSelect = $("type");
         const selected = typeSelect.value;
-        typeSelect.innerHTML = items
-          .map(
-            (cat) =>
-              `<option value="${cat.id}">${escapeHtml(cat.name)}</option>`
-          )
-          .join("");
-        if (items.some((cat) => cat.id === selected))
-          typeSelect.value = selected;
+        typeSelect.innerHTML = items.map(cat => `<option value="${cat.id}">${escapeHtml(cat.name)}</option>`).join("");
+        if (items.some(cat => cat.id === selected)) typeSelect.value = selected;
 
         const primary = items[0];
         const others = items.slice(1);
-        $("weekPrimaryLabel").textContent = `이번 주 ${
-          primary?.name || "주요 일정"
-        }`;
-        $("projectLabel").textContent = `진행 중인 ${
-          others.length
-            ? others.map((x) => x.name.replace(/일정$/, "")).join("·")
-            : "기타"
-        } 일정`;
-        $("progressDescription").textContent = `${
-          primary?.name || "첫 번째 카테고리"
-        }을(를) 제외한 일정의 완료 상태를 기준으로 계산합니다.`;
+        $("weekPrimaryLabel").textContent = `이번 주 ${primary?.name || "주요 일정"}`;
+        $("projectLabel").textContent = `진행 중인 ${others.length ? others.map(x => x.name.replace(/일정$/,"" )).join("·") : "기타"} 일정`;
+        $("progressDescription").textContent = `${primary?.name || "첫 번째 카테고리"}을(를) 제외한 일정의 완료 상태를 기준으로 계산합니다.`;
       }
 
       function renderCategoryEditor() {
         const wrap = $("categoryRows");
-        wrap.innerHTML = editingCategories
-          .map(
-            (cat, index) => `
+        wrap.innerHTML = editingCategories.map((cat, index) => `
           <div class="category-row" data-index="${index}">
             <div class="category-drag">⋮⋮</div>
             <div>
-              <input class="category-name-input" data-name value="${escapeHtml(
-                cat.name
-              )}" maxlength="20" aria-label="카테고리 이름">
-              <div class="category-preview" style="--cat-color:${
-                cat.color
-              };margin-top:6px"><span class="category-preview-dot"></span><span>메뉴 ${
-              index + 1
-            }번째</span></div>
+              <input class="category-name-input" data-name value="${escapeHtml(cat.name)}" maxlength="20" aria-label="카테고리 이름">
+              <div class="category-preview" style="--cat-color:${cat.color};margin-top:6px"><span class="category-preview-dot"></span><span>메뉴 ${index + 1}번째</span></div>
             </div>
-            <input class="category-color-input" data-color type="color" value="${
-              cat.color
-            }" aria-label="카테고리 색상">
+            <input class="category-color-input" data-color type="color" value="${cat.color}" aria-label="카테고리 색상">
             <div class="category-order-actions">
-              <button type="button" data-up ${
-                index === 0 ? "disabled" : ""
-              }>↑</button>
-              <button type="button" data-down ${
-                index === editingCategories.length - 1 ? "disabled" : ""
-              }>↓</button>
+              <button type="button" data-up ${index === 0 ? "disabled" : ""}>↑</button>
+              <button type="button" data-down ${index === editingCategories.length - 1 ? "disabled" : ""}>↓</button>
             </div>
-          </div>`
-          )
-          .join("");
-        wrap.querySelectorAll(".category-row").forEach((row) => {
+          </div>`).join("");
+        wrap.querySelectorAll(".category-row").forEach(row => {
           const index = Number(row.dataset.index);
-          row
-            .querySelector("[data-name]")
-            .addEventListener(
-              "input",
-              (e) => (editingCategories[index].name = e.target.value)
-            );
-          row.querySelector("[data-color]").addEventListener("input", (e) => {
-            editingCategories[index].color = e.target.value;
-            renderCategoryEditor();
-          });
-          row.querySelector("[data-up]").addEventListener("click", () => {
-            [editingCategories[index - 1], editingCategories[index]] = [
-              editingCategories[index],
-              editingCategories[index - 1],
-            ];
-            renderCategoryEditor();
-          });
-          row.querySelector("[data-down]").addEventListener("click", () => {
-            [editingCategories[index + 1], editingCategories[index]] = [
-              editingCategories[index],
-              editingCategories[index + 1],
-            ];
-            renderCategoryEditor();
-          });
+          row.querySelector("[data-name]").addEventListener("input", e => editingCategories[index].name = e.target.value);
+          row.querySelector("[data-color]").addEventListener("input", e => { editingCategories[index].color = e.target.value; renderCategoryEditor(); });
+          row.querySelector("[data-up]").addEventListener("click", () => { [editingCategories[index-1], editingCategories[index]] = [editingCategories[index], editingCategories[index-1]]; renderCategoryEditor(); });
+          row.querySelector("[data-down]").addEventListener("click", () => { [editingCategories[index+1], editingCategories[index]] = [editingCategories[index], editingCategories[index+1]]; renderCategoryEditor(); });
         });
       }
 
       function openCategoryModal() {
         if (!requireLogin()) return;
-        editingCategories = sortedCategories().map((item) => ({ ...item }));
+        editingCategories = sortedCategories().map(item => ({...item}));
         renderCategoryEditor();
         $("categoryModalWrap").classList.add("open");
       }
@@ -3073,18 +2715,12 @@
             currentUser = user;
             updateAccountUI(user);
 
-            if (unsubscribeSchedules) {
-              unsubscribeSchedules();
-              unsubscribeSchedules = null;
-            }
-            if (unsubscribeCategories) {
-              unsubscribeCategories();
-              unsubscribeCategories = null;
-            }
+            if (unsubscribeSchedules) { unsubscribeSchedules(); unsubscribeSchedules = null; }
+            if (unsubscribeCategories) { unsubscribeCategories(); unsubscribeCategories = null; }
 
             if (!user) {
               schedules = [];
-              categories = defaultCategories.map((item) => ({ ...item }));
+              categories = defaultCategories.map(item => ({...item}));
               renderCategoryControls();
               setSyncState("idle", "로그인 필요");
               render();
@@ -3092,41 +2728,18 @@
             }
 
             setSyncState("loading", "동기화 중");
-            const categoriesRef = doc(
-              db,
-              "users",
-              user.uid,
-              "settings",
-              "categories"
-            );
-            unsubscribeCategories = onSnapshot(
-              categoriesRef,
-              async (snapshot) => {
-                if (snapshot.exists() && Array.isArray(snapshot.data().items)) {
-                  categories = snapshot
-                    .data()
-                    .items.map((item, index) => ({ ...item, order: index }));
-                } else {
-                  categories = defaultCategories.map((item) => ({ ...item }));
-                  await setDoc(
-                    categoriesRef,
-                    { items: categories, updatedAt: serverTimestamp() },
-                    { merge: true }
-                  );
-                }
-                if (
-                  currentFilter !== "all" &&
-                  !categories.some((cat) => cat.id === currentFilter)
-                )
-                  currentFilter = "all";
-                renderCategoryControls();
-                render();
-              },
-              (error) => {
-                console.error(error);
-                setSyncState("error", "설정 오류");
+            const categoriesRef = doc(db, "users", user.uid, "settings", "categories");
+            unsubscribeCategories = onSnapshot(categoriesRef, async (snapshot) => {
+              if (snapshot.exists() && Array.isArray(snapshot.data().items)) {
+                categories = snapshot.data().items.map((item, index) => ({ ...item, order: index }));
+              } else {
+                categories = defaultCategories.map(item => ({...item}));
+                await setDoc(categoriesRef, { items: categories, updatedAt: serverTimestamp() }, { merge: true });
               }
-            );
+              if (currentFilter !== "all" && !categories.some(cat => cat.id === currentFilter)) currentFilter = "all";
+              renderCategoryControls();
+              render();
+            }, error => { console.error(error); setSyncState("error", "설정 오류"); });
 
             const schedulesRef = collection(db, "users", user.uid, "schedules");
             const schedulesQuery = query(
@@ -3164,9 +2777,7 @@
 
       async function login() {
         if (!auth) {
-          alert(
-            "Firebase 연결이 아직 준비되지 않았습니다. 페이지를 새로고침한 뒤 다시 시도하세요."
-          );
+          alert("Firebase 연결이 아직 준비되지 않았습니다. 페이지를 새로고침한 뒤 다시 시도하세요.");
           return;
         }
 
@@ -3184,31 +2795,19 @@
           setSyncState("error", "로그인 실패");
 
           if (error.code === "auth/configuration-not-found") {
-            alert(
-              "Firebase Authentication이 활성화되지 않았습니다. Firebase 콘솔에서 Authentication → Google 로그인을 사용 설정하세요."
-            );
+            alert("Firebase Authentication이 활성화되지 않았습니다. Firebase 콘솔에서 Authentication → Google 로그인을 사용 설정하세요.");
           } else if (error.code === "auth/unauthorized-domain") {
-            alert(
-              `현재 사이트 도메인이 Firebase 승인 목록에 없습니다.\n\n추가할 도메인: ${location.hostname}`
-            );
+            alert(`현재 사이트 도메인이 Firebase 승인 목록에 없습니다.\n\n추가할 도메인: ${location.hostname}`);
           } else if (error.code === "auth/popup-blocked") {
-            alert(
-              "로그인 팝업이 차단되었습니다. Safari 주소창의 팝업 차단을 해제한 뒤 다시 눌러주세요."
-            );
+            alert("로그인 팝업이 차단되었습니다. Safari 주소창의 팝업 차단을 해제한 뒤 다시 눌러주세요.");
           } else if (error.code === "auth/cancelled-popup-request") {
             // 로그인 버튼을 연속으로 누른 경우이므로 별도 경고 없음
           } else if (error.code === "auth/popup-closed-by-user") {
             setSyncState("idle", "로그인 필요");
-          } else if (
-            error.code === "auth/operation-not-supported-in-this-environment"
-          ) {
-            alert(
-              "현재 브라우저 환경에서는 Google 로그인을 열 수 없습니다. Safari 또는 Chrome의 일반 탭에서 사이트를 직접 열어주세요."
-            );
+          } else if (error.code === "auth/operation-not-supported-in-this-environment") {
+            alert("현재 브라우저 환경에서는 Google 로그인을 열 수 없습니다. Safari 또는 Chrome의 일반 탭에서 사이트를 직접 열어주세요.");
           } else {
-            alert(
-              `Google 로그인에 실패했습니다.\n\n${error.code || error.message}`
-            );
+            alert(`Google 로그인에 실패했습니다.\n\n${error.code || error.message}`);
           }
         }
       }
@@ -3236,7 +2835,7 @@
         const primaryId = categoryItems[0]?.id;
 
         if (currentFilter === "__other__") {
-          return schedules.filter((item) => item.type !== primaryId);
+          return schedules.filter(item => item.type !== primaryId);
         }
 
         if (currentFilter === "__due__") {
@@ -3244,11 +2843,10 @@
           const dueEnd = new Date(today);
           dueEnd.setDate(today.getDate() + 7);
           const dueEndKey = formatDateKey(dueEnd);
-          return schedules.filter(
-            (item) =>
-              item.status !== "done" &&
-              item.endDate >= todayKey &&
-              item.endDate <= dueEndKey
+          return schedules.filter(item =>
+            item.status !== "done" &&
+            item.endDate >= todayKey &&
+            item.endDate <= dueEndKey
           );
         }
 
@@ -3304,18 +2902,16 @@
               (a.startTime || "99:99").localeCompare(b.startTime || "99:99")
             );
 
-          events.slice(0, 3).forEach((item) => {
+          const calendarEventLimit = window.matchMedia("(max-width: 720px)").matches ? 2 : 3;
+          events.slice(0, calendarEventLimit).forEach((item) => {
             const eventBtn = document.createElement("button");
             eventBtn.className = `calendar-event`;
             const category = getCategory(item.type);
             eventBtn.style.color = category.color;
-            eventBtn.style.background = `linear-gradient(90deg, ${hexToRgba(
-              category.color,
-              0.1
-            )}, transparent)`;
-            eventBtn.textContent = `${
-              item.startTime ? item.startTime + " " : ""
-            }${item.title}`;
+            eventBtn.style.background = `linear-gradient(90deg, ${hexToRgba(category.color, .10)}, transparent)`;
+            eventBtn.textContent = window.matchMedia("(max-width: 720px)").matches
+              ? item.title
+              : `${item.startTime ? item.startTime + " " : ""}${item.title}`;
             eventBtn.title = item.title;
             eventBtn.addEventListener("click", (e) => {
               e.stopPropagation();
@@ -3324,10 +2920,10 @@
             eventsWrap.appendChild(eventBtn);
           });
 
-          if (events.length > 3) {
+          if (events.length > calendarEventLimit) {
             const more = document.createElement("div");
             more.className = "more-count";
-            more.textContent = `+${events.length - 3}개`;
+            more.textContent = `+${events.length - calendarEventLimit}개`;
             eventsWrap.appendChild(more);
           }
 
@@ -3352,12 +2948,9 @@
         const todayItems = visible.filter((item) => occursOn(item, todayKey));
         const categoryItems = sortedCategories();
         const primaryId = categoryItems[0]?.id;
-        const otherIds = categoryItems.slice(1).map((item) => item.id);
+        const otherIds = categoryItems.slice(1).map(item => item.id);
         const weekWork = schedules.filter(
-          (item) =>
-            item.type === primaryId &&
-            item.startDate <= weekEndKey &&
-            item.endDate >= todayKey
+          (item) => item.type === primaryId && item.startDate <= weekEndKey && item.endDate >= todayKey
         );
         const projects = schedules.filter(
           (item) => otherIds.includes(item.type) && item.status !== "done"
@@ -3378,12 +2971,10 @@
         $("projectCount").innerHTML = `${projects.length}<small>건</small>`;
         $("dueSoonCount").innerHTML = `${dueSoon.length}<small>건</small>`;
 
-        document.querySelectorAll("[data-summary-action]").forEach((card) => {
+        document.querySelectorAll("[data-summary-action]").forEach(card => {
           const action = card.dataset.summaryAction;
           const active =
-            (action === "today" &&
-              currentFilter === "all" &&
-              selectedDate === todayKey) ||
+            (action === "today" && currentFilter === "all" && selectedDate === todayKey) ||
             (action === "primary" && currentFilter === primaryId) ||
             (action === "other" && currentFilter === "__other__") ||
             (action === "due" && currentFilter === "__due__");
@@ -3426,9 +3017,7 @@
           item.id
         }">
           <div class="schedule-meta">
-            <span class="type-chip" style="color:${
-              category.color
-            }">${escapeHtml(typeLabel)}</span>
+            <span class="type-chip" style="color:${category.color}">${escapeHtml(typeLabel)}</span>
             <span>${dateText}</span>
             <span>· ${statusLabel}</span>
           </div>
@@ -3506,10 +3095,8 @@
         )}`;
         const primaryId = sortedCategories()[0]?.id;
         const projects = schedules.filter(
-          (item) =>
-            item.type !== primaryId &&
-            (item.startDate.startsWith(monthPrefix) ||
-              item.endDate.startsWith(monthPrefix))
+          (item) => item.type !== primaryId &&
+            (item.startDate.startsWith(monthPrefix) || item.endDate.startsWith(monthPrefix))
         );
         const done = projects.filter((item) => item.status === "done").length;
         const percent = projects.length
@@ -3629,16 +3216,12 @@
 
         renderCategoryControls();
         render();
-        document
-          .querySelector(".calendar-card")
-          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+        document.querySelector(".calendar-card")?.scrollIntoView({ behavior: "smooth", block: "start" });
       }
 
-      document.querySelectorAll("[data-summary-action]").forEach((card) => {
-        card.addEventListener("click", () =>
-          activateSummaryCard(card.dataset.summaryAction)
-        );
-        card.addEventListener("keydown", (event) => {
+      document.querySelectorAll("[data-summary-action]").forEach(card => {
+        card.addEventListener("click", () => activateSummaryCard(card.dataset.summaryAction));
+        card.addEventListener("keydown", event => {
           if (event.key === "Enter" || event.key === " ") {
             event.preventDefault();
             activateSummaryCard(card.dataset.summaryAction);
@@ -3674,39 +3257,24 @@
         render();
       });
 
+
+
       $("categorySettingsBtn").addEventListener("click", openCategoryModal);
       $("closeCategoryModalBtn").addEventListener("click", closeCategoryModal);
       $("cancelCategoryBtn").addEventListener("click", closeCategoryModal);
-      $("categoryModalWrap").addEventListener("click", (e) => {
-        if (e.target.id === "categoryModalWrap") closeCategoryModal();
-      });
+      $("categoryModalWrap").addEventListener("click", e => { if (e.target.id === "categoryModalWrap") closeCategoryModal(); });
       $("saveCategoryBtn").addEventListener("click", async () => {
         if (!requireLogin()) return;
-        const cleaned = editingCategories.map((item, index) => ({
-          ...item,
-          name: item.name.trim() || `일정 ${index + 1}`,
-          order: index,
-        }));
+        const cleaned = editingCategories.map((item, index) => ({ ...item, name: item.name.trim() || `일정 ${index+1}`, order: index }));
         try {
           setSyncState("loading", "설정 저장 중");
-          await setDoc(
-            doc(db, "users", currentUser.uid, "settings", "categories"),
-            { items: cleaned, updatedAt: serverTimestamp() },
-            { merge: true }
-          );
+          await setDoc(doc(db, "users", currentUser.uid, "settings", "categories"), { items: cleaned, updatedAt: serverTimestamp() }, { merge: true });
           closeCategoryModal();
-        } catch (error) {
-          console.error(error);
-          setSyncState("error", "설정 저장 실패");
-          alert("카테고리 설정을 저장하지 못했습니다.");
-        }
+        } catch (error) { console.error(error); setSyncState("error", "설정 저장 실패"); alert("카테고리 설정을 저장하지 못했습니다."); }
       });
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") {
-          closeModal();
-          closeCategoryModal();
-        }
+        if (e.key === "Escape") { closeModal(); closeCategoryModal(); }
       });
       $("todayText").textContent = new Intl.DateTimeFormat("ko-KR", {
         year: "numeric",
