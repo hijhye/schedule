@@ -2266,18 +2266,260 @@
         }
       }
     </style>
+
+    <style id="category-settings-style">
+      .settings-btn {
+        height: 34px;
+        padding: 0 11px;
+        border: 1px solid #d8dce7;
+        background: #fff;
+        color: #343948;
+        font-size: 10px;
+        font-weight: 850;
+        white-space: nowrap;
+      }
+      .settings-btn:hover {
+        border-color: #989be0;
+        color: #6265c8;
+        background: #fafaff;
+      }
+      .category-manager {
+        width: min(620px, 100%);
+      }
+      .category-help {
+        margin: -5px 0 16px;
+        color: #7b8291;
+        font-size: 11px;
+        line-height: 1.55;
+      }
+      .category-rows {
+        display: grid;
+        gap: 8px;
+      }
+      .category-row {
+        display: grid;
+        grid-template-columns: 28px 1fr 52px 70px;
+        gap: 8px;
+        align-items: center;
+        padding: 10px;
+        border: 1px solid #e1e4ec;
+        background: #fafbfc;
+      }
+      .category-drag {
+        color: #9aa0ad;
+        text-align: center;
+        font-size: 15px;
+        cursor: grab;
+      }
+      .category-name-input {
+        width: 100%;
+        height: 38px;
+        padding: 0 10px;
+        border: 1px solid #cfd4df;
+        background: #fff;
+        outline: none;
+      }
+      .category-color-input {
+        width: 42px;
+        height: 38px;
+        padding: 3px;
+        border: 1px solid #cfd4df;
+        background: #fff;
+      }
+      .category-order-actions {
+        display: flex;
+        gap: 4px;
+      }
+      .category-order-actions button {
+        width: 32px;
+        height: 32px;
+        border: 1px solid #d6dae4;
+        background: #fff;
+        color: #555d6c;
+      }
+      .category-order-actions button:disabled {
+        opacity: 0.25;
+        cursor: not-allowed;
+      }
+      .category-preview {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 10px;
+        color: #6c7381;
+      }
+      .category-preview-dot {
+        width: 8px;
+        height: 8px;
+        background: var(--cat-color);
+        display: inline-block;
+      }
+      @media (max-width: 720px) {
+        .settings-btn {
+          height: 32px;
+          padding: 0 9px;
+        }
+        .category-manager {
+          align-self: end;
+          width: 100%;
+          max-height: 88vh;
+          border-radius: 16px 16px 0 0;
+        }
+        .category-row {
+          grid-template-columns: 24px minmax(0, 1fr) 44px 66px;
+          padding: 8px;
+          gap: 6px;
+        }
+        .category-name-input {
+          font-size: 16px;
+        }
+        .category-color-input {
+          width: 38px;
+        }
+        .category-help {
+          font-size: 10px;
+        }
+      }
+    </style>
+
+    <style id="mobile-headerless-card-nav">
+      .mobile-tools {
+        display: none;
+      }
+
+      @media (max-width: 760px) {
+        .app-header {
+          display: none !important;
+        }
+
+        .main {
+          padding-top: calc(20px + env(safe-area-inset-top));
+        }
+
+        .topbar {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          align-items: start;
+          margin-bottom: 18px;
+        }
+
+        .topbar h1 {
+          font-size: 24px;
+          line-height: 1.15;
+        }
+
+        .mobile-tools {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 6px;
+          margin-top: 11px;
+        }
+
+        .mobile-tool-btn {
+          min-height: 30px;
+          padding: 0 9px;
+          border: 1px solid #d9dde7;
+          border-radius: 4px;
+          background: #fff;
+          color: #444b5a;
+          font-size: 10px;
+          font-weight: 800;
+        }
+
+        .mobile-tool-btn.muted {
+          color: #7b8290;
+          background: transparent;
+        }
+
+        .add-btn {
+          min-height: 38px;
+          margin-top: 1px;
+        }
+
+        .summary-grid {
+          width: 100%;
+          display: grid;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 8px;
+          margin: 0 0 26px;
+          padding: 0;
+          overflow: visible;
+          scroll-snap-type: none;
+        }
+
+        .summary-card {
+          position: relative;
+          flex: none;
+          width: auto;
+          min-height: 94px;
+          padding: 14px 13px 13px;
+          cursor: pointer;
+          user-select: none;
+          -webkit-tap-highlight-color: transparent;
+          transition: border-color 0.16s ease, background 0.16s ease,
+            transform 0.12s ease;
+        }
+
+        .summary-card::before {
+          content: "보기";
+          position: absolute;
+          right: 11px;
+          bottom: 10px;
+          color: #a0a6b3;
+          font-size: 8px;
+          font-weight: 850;
+          letter-spacing: 0.03em;
+        }
+
+        .summary-card:active {
+          transform: scale(0.985);
+        }
+
+        .summary-card.mobile-active {
+          border-color: #787add !important;
+          background: #f4f4ff;
+          box-shadow: inset 0 0 0 1px rgba(120, 122, 221, 0.12);
+        }
+
+        .summary-card.mobile-active::before {
+          content: "선택됨";
+          color: #6669cf;
+        }
+
+        .summary-card span {
+          min-height: 26px;
+          padding-right: 4px;
+        }
+
+        .summary-value {
+          margin-top: 8px;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .main {
+          padding-left: 10px;
+          padding-right: 10px;
+        }
+        .topbar h1 {
+          font-size: 22px;
+        }
+        .summary-card {
+          min-height: 88px;
+          padding: 12px 11px;
+        }
+        .summary-value {
+          font-size: 25px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="app">
       <header class="app-header">
         <a class="wordmark" href="#" aria-label="Schedule 홈">SCHEDULE</a>
 
-        <nav class="top-nav" aria-label="일정 구분">
-          <button class="active" data-filter="all">전체</button>
-          <button data-filter="work">캐스트피아 일정</button>
-          <button data-filter="personal">개인일정</button>
-          <button data-filter="loind">로인드일정</button>
-        </nav>
+        <nav class="top-nav" id="categoryNav" aria-label="일정 구분"></nav>
 
         <div class="header-account">
           <div class="sync-state" title="Firebase 연결 상태">
@@ -2290,6 +2532,9 @@
           <div class="account-box" id="accountBox" hidden>
             <img class="account-photo" id="accountPhoto" alt="" hidden />
             <span class="account-name" id="accountName"></span>
+            <button class="settings-btn" id="categorySettingsBtn" type="button">
+              일정 설정
+            </button>
             <button class="logout-btn" id="logoutBtn" type="button">
               로그아웃
             </button>
@@ -2302,28 +2547,69 @@
           <div>
             <h1>일정 대시보드</h1>
             <div class="today-text" id="todayText"></div>
+            <div class="mobile-tools" aria-label="모바일 계정 메뉴">
+              <button class="mobile-tool-btn" id="mobileLoginBtn" type="button">
+                Google 로그인
+              </button>
+              <button
+                class="mobile-tool-btn"
+                id="mobileSettingsBtn"
+                type="button"
+                hidden
+              >
+                일정 설정
+              </button>
+              <button
+                class="mobile-tool-btn muted"
+                id="mobileLogoutBtn"
+                type="button"
+                hidden
+              >
+                로그아웃
+              </button>
+            </div>
           </div>
           <button class="add-btn" id="openModalBtn">＋ 일정 등록</button>
         </header>
 
         <section class="summary-grid">
-          <article class="summary-card">
+          <article
+            class="summary-card"
+            data-summary-action="today"
+            role="button"
+            tabindex="0"
+          >
             <span>오늘 일정</span>
             <div class="summary-value" id="todayCount">0<small>건</small></div>
           </article>
-          <article class="summary-card">
-            <span>이번 주 캐스트피아 일정</span>
+          <article
+            class="summary-card"
+            data-summary-action="primary"
+            role="button"
+            tabindex="0"
+          >
+            <span id="weekPrimaryLabel">이번 주 캐스트피아 일정</span>
             <div class="summary-value" id="weekWorkCount">
               0<small>건</small>
             </div>
           </article>
-          <article class="summary-card">
-            <span>진행 중인 개인·로인드 일정</span>
+          <article
+            class="summary-card"
+            data-summary-action="other"
+            role="button"
+            tabindex="0"
+          >
+            <span id="projectLabel">진행 중인 기타 일정</span>
             <div class="summary-value" id="projectCount">
               0<small>건</small>
             </div>
           </article>
-          <article class="summary-card">
+          <article
+            class="summary-card"
+            data-summary-action="due"
+            role="button"
+            tabindex="0"
+          >
             <span>7일 내 마감</span>
             <div class="summary-value" id="dueSoonCount">
               0<small>건</small>
@@ -2376,7 +2662,10 @@
 
             <article class="card focus-card">
               <h3>이번 달 일정 진행률</h3>
-              <p>개인일정과 로인드일정의 완료 상태를 기준으로 계산합니다.</p>
+              <p id="progressDescription">
+                첫 번째 카테고리를 제외한 일정의 완료 상태를 기준으로
+                계산합니다.
+              </p>
               <div class="focus-progress"><div id="progressBar"></div></div>
               <div class="focus-info">
                 <span id="progressText">완료 0 / 0</span>
@@ -2410,11 +2699,7 @@
 
             <div class="field">
               <label for="type">구분</label>
-              <select id="type">
-                <option value="work">캐스트피아 일정</option>
-                <option value="personal">개인일정</option>
-                <option value="loind">로인드일정</option>
-              </select>
+              <select id="type"></select>
             </div>
 
             <div class="field">
@@ -2462,6 +2747,30 @@
             <button type="submit" class="save-btn">저장하기</button>
           </div>
         </form>
+      </div>
+    </div>
+
+    <div class="modal-wrap" id="categoryModalWrap">
+      <div class="modal category-manager">
+        <div class="modal-head">
+          <h2>일정 카테고리 설정</h2>
+          <button class="close-btn" id="closeCategoryModalBtn" type="button">
+            ×
+          </button>
+        </div>
+        <p class="category-help">
+          카테고리 이름과 색상, 노출 순서를 계정별로 저장합니다. 위에 있는
+          카테고리부터 메뉴와 일정 등록창에 표시됩니다.
+        </p>
+        <div class="category-rows" id="categoryRows"></div>
+        <div class="form-actions">
+          <button type="button" class="cancel-btn" id="cancelCategoryBtn">
+            취소
+          </button>
+          <button type="button" class="save-btn" id="saveCategoryBtn">
+            설정 저장
+          </button>
+        </div>
       </div>
     </div>
 
@@ -2519,10 +2828,169 @@
       let schedules = [];
       let currentUser = null;
       let unsubscribeSchedules = null;
+      let unsubscribeCategories = null;
+      const defaultCategories = [
+        { id: "work", name: "캐스트피아 일정", color: "#3188cf", order: 0 },
+        { id: "personal", name: "개인일정", color: "#8475d9", order: 1 },
+        { id: "loind", name: "로인드일정", color: "#45a9b8", order: 2 },
+      ];
+      let categories = defaultCategories.map((item) => ({ ...item }));
+      let editingCategories = [];
       let db = null;
       let auth = null;
 
       const $ = (id) => document.getElementById(id);
+
+      function sortedCategories() {
+        return [...categories].sort((a, b) => (a.order ?? 0) - (b.order ?? 0));
+      }
+
+      function getCategory(id) {
+        return (
+          categories.find((item) => item.id === id) || {
+            id,
+            name: "기타 일정",
+            color: "#7c8494",
+            order: 999,
+          }
+        );
+      }
+
+      function hexToRgba(hex, alpha = 0.1) {
+        const clean = String(hex || "#7c8494").replace("#", "");
+        const full =
+          clean.length === 3
+            ? clean
+                .split("")
+                .map((x) => x + x)
+                .join("")
+            : clean;
+        const num = parseInt(full, 16);
+        if (Number.isNaN(num)) return `rgba(124,132,148,${alpha})`;
+        return `rgba(${(num >> 16) & 255},${(num >> 8) & 255},${
+          num & 255
+        },${alpha})`;
+      }
+
+      function renderCategoryControls() {
+        const items = sortedCategories();
+        const nav = $("categoryNav");
+        nav.innerHTML =
+          `<button data-filter="all" class="${
+            currentFilter === "all" ? "active" : ""
+          }">전체</button>` +
+          items
+            .map(
+              (cat) =>
+                `<button data-filter="${cat.id}" class="${
+                  currentFilter === cat.id ? "active" : ""
+                }">${escapeHtml(cat.name)}</button>`
+            )
+            .join("");
+        nav.querySelectorAll("button").forEach((button) => {
+          button.addEventListener("click", () => {
+            currentFilter = button.dataset.filter;
+            renderCategoryControls();
+            render();
+          });
+        });
+
+        const typeSelect = $("type");
+        const selected = typeSelect.value;
+        typeSelect.innerHTML = items
+          .map(
+            (cat) =>
+              `<option value="${cat.id}">${escapeHtml(cat.name)}</option>`
+          )
+          .join("");
+        if (items.some((cat) => cat.id === selected))
+          typeSelect.value = selected;
+
+        const primary = items[0];
+        const others = items.slice(1);
+        $("weekPrimaryLabel").textContent = `이번 주 ${
+          primary?.name || "주요 일정"
+        }`;
+        $("projectLabel").textContent = `진행 중인 ${
+          others.length
+            ? others.map((x) => x.name.replace(/일정$/, "")).join("·")
+            : "기타"
+        } 일정`;
+        $("progressDescription").textContent = `${
+          primary?.name || "첫 번째 카테고리"
+        }을(를) 제외한 일정의 완료 상태를 기준으로 계산합니다.`;
+      }
+
+      function renderCategoryEditor() {
+        const wrap = $("categoryRows");
+        wrap.innerHTML = editingCategories
+          .map(
+            (cat, index) => `
+          <div class="category-row" data-index="${index}">
+            <div class="category-drag">⋮⋮</div>
+            <div>
+              <input class="category-name-input" data-name value="${escapeHtml(
+                cat.name
+              )}" maxlength="20" aria-label="카테고리 이름">
+              <div class="category-preview" style="--cat-color:${
+                cat.color
+              };margin-top:6px"><span class="category-preview-dot"></span><span>메뉴 ${
+              index + 1
+            }번째</span></div>
+            </div>
+            <input class="category-color-input" data-color type="color" value="${
+              cat.color
+            }" aria-label="카테고리 색상">
+            <div class="category-order-actions">
+              <button type="button" data-up ${
+                index === 0 ? "disabled" : ""
+              }>↑</button>
+              <button type="button" data-down ${
+                index === editingCategories.length - 1 ? "disabled" : ""
+              }>↓</button>
+            </div>
+          </div>`
+          )
+          .join("");
+        wrap.querySelectorAll(".category-row").forEach((row) => {
+          const index = Number(row.dataset.index);
+          row
+            .querySelector("[data-name]")
+            .addEventListener(
+              "input",
+              (e) => (editingCategories[index].name = e.target.value)
+            );
+          row.querySelector("[data-color]").addEventListener("input", (e) => {
+            editingCategories[index].color = e.target.value;
+            renderCategoryEditor();
+          });
+          row.querySelector("[data-up]").addEventListener("click", () => {
+            [editingCategories[index - 1], editingCategories[index]] = [
+              editingCategories[index],
+              editingCategories[index - 1],
+            ];
+            renderCategoryEditor();
+          });
+          row.querySelector("[data-down]").addEventListener("click", () => {
+            [editingCategories[index + 1], editingCategories[index]] = [
+              editingCategories[index],
+              editingCategories[index + 1],
+            ];
+            renderCategoryEditor();
+          });
+        });
+      }
+
+      function openCategoryModal() {
+        if (!requireLogin()) return;
+        editingCategories = sortedCategories().map((item) => ({ ...item }));
+        renderCategoryEditor();
+        $("categoryModalWrap").classList.add("open");
+      }
+
+      function closeCategoryModal() {
+        $("categoryModalWrap").classList.remove("open");
+      }
 
       function setSyncState(state, text) {
         const dot = $("syncDot");
@@ -2537,6 +3005,9 @@
         if (user) {
           loginBtn.hidden = true;
           accountBox.hidden = false;
+          $("mobileLoginBtn").hidden = true;
+          $("mobileSettingsBtn").hidden = false;
+          $("mobileLogoutBtn").hidden = false;
           $("accountName").textContent =
             user.displayName || user.email || "로그인됨";
           $("accountPhoto").src = user.photoURL || "";
@@ -2544,6 +3015,9 @@
         } else {
           loginBtn.hidden = false;
           accountBox.hidden = true;
+          $("mobileLoginBtn").hidden = false;
+          $("mobileSettingsBtn").hidden = true;
+          $("mobileLogoutBtn").hidden = true;
         }
       }
 
@@ -2552,6 +3026,8 @@
           setSyncState("warning", "Firebase 설정 필요");
           $("loginBtn").disabled = true;
           $("loginBtn").title = "파일 안의 firebaseConfig를 먼저 입력하세요.";
+          $("mobileLoginBtn").disabled = true;
+          $("mobileLoginBtn").title = "Firebase 설정이 필요합니다.";
           schedules = [];
           render();
           return;
@@ -2580,15 +3056,57 @@
               unsubscribeSchedules();
               unsubscribeSchedules = null;
             }
+            if (unsubscribeCategories) {
+              unsubscribeCategories();
+              unsubscribeCategories = null;
+            }
 
             if (!user) {
               schedules = [];
+              categories = defaultCategories.map((item) => ({ ...item }));
+              renderCategoryControls();
               setSyncState("idle", "로그인 필요");
               render();
               return;
             }
 
             setSyncState("loading", "동기화 중");
+            const categoriesRef = doc(
+              db,
+              "users",
+              user.uid,
+              "settings",
+              "categories"
+            );
+            unsubscribeCategories = onSnapshot(
+              categoriesRef,
+              async (snapshot) => {
+                if (snapshot.exists() && Array.isArray(snapshot.data().items)) {
+                  categories = snapshot
+                    .data()
+                    .items.map((item, index) => ({ ...item, order: index }));
+                } else {
+                  categories = defaultCategories.map((item) => ({ ...item }));
+                  await setDoc(
+                    categoriesRef,
+                    { items: categories, updatedAt: serverTimestamp() },
+                    { merge: true }
+                  );
+                }
+                if (
+                  currentFilter !== "all" &&
+                  !categories.some((cat) => cat.id === currentFilter)
+                )
+                  currentFilter = "all";
+                renderCategoryControls();
+                render();
+              },
+              (error) => {
+                console.error(error);
+                setSyncState("error", "설정 오류");
+              }
+            );
+
             const schedulesRef = collection(db, "users", user.uid, "schedules");
             const schedulesQuery = query(
               schedulesRef,
@@ -2688,9 +3206,29 @@
       }
 
       function getVisibleSchedules() {
-        return currentFilter === "all"
-          ? schedules
-          : schedules.filter((item) => item.type === currentFilter);
+        if (currentFilter === "all") return schedules;
+
+        const categoryItems = sortedCategories();
+        const primaryId = categoryItems[0]?.id;
+
+        if (currentFilter === "__other__") {
+          return schedules.filter((item) => item.type !== primaryId);
+        }
+
+        if (currentFilter === "__due__") {
+          const todayKey = formatDateKey(today);
+          const dueEnd = new Date(today);
+          dueEnd.setDate(today.getDate() + 7);
+          const dueEndKey = formatDateKey(dueEnd);
+          return schedules.filter(
+            (item) =>
+              item.status !== "done" &&
+              item.endDate >= todayKey &&
+              item.endDate <= dueEndKey
+          );
+        }
+
+        return schedules.filter((item) => item.type === currentFilter);
       }
 
       function occursOn(item, dateKey) {
@@ -2744,7 +3282,13 @@
 
           events.slice(0, 3).forEach((item) => {
             const eventBtn = document.createElement("button");
-            eventBtn.className = `calendar-event ${item.type}`;
+            eventBtn.className = `calendar-event`;
+            const category = getCategory(item.type);
+            eventBtn.style.color = category.color;
+            eventBtn.style.background = `linear-gradient(90deg, ${hexToRgba(
+              category.color,
+              0.1
+            )}, transparent)`;
             eventBtn.textContent = `${
               item.startTime ? item.startTime + " " : ""
             }${item.title}`;
@@ -2782,16 +3326,17 @@
         const visible = getVisibleSchedules();
 
         const todayItems = visible.filter((item) => occursOn(item, todayKey));
+        const categoryItems = sortedCategories();
+        const primaryId = categoryItems[0]?.id;
+        const otherIds = categoryItems.slice(1).map((item) => item.id);
         const weekWork = schedules.filter(
           (item) =>
-            item.type === "work" &&
+            item.type === primaryId &&
             item.startDate <= weekEndKey &&
             item.endDate >= todayKey
         );
         const projects = schedules.filter(
-          (item) =>
-            (item.type === "personal" || item.type === "loind") &&
-            item.status !== "done"
+          (item) => otherIds.includes(item.type) && item.status !== "done"
         );
 
         const dueEnd = new Date(today);
@@ -2808,6 +3353,18 @@
         $("weekWorkCount").innerHTML = `${weekWork.length}<small>건</small>`;
         $("projectCount").innerHTML = `${projects.length}<small>건</small>`;
         $("dueSoonCount").innerHTML = `${dueSoon.length}<small>건</small>`;
+
+        document.querySelectorAll("[data-summary-action]").forEach((card) => {
+          const action = card.dataset.summaryAction;
+          const active =
+            (action === "today" &&
+              currentFilter === "all" &&
+              selectedDate === todayKey) ||
+            (action === "primary" && currentFilter === primaryId) ||
+            (action === "other" && currentFilter === "__other__") ||
+            (action === "due" && currentFilter === "__due__");
+          card.classList.toggle("mobile-active", active);
+        });
       }
 
       function escapeHtml(text = "") {
@@ -2820,10 +3377,8 @@
         const end = parseLocalDate(item.endDate);
         const diff = Math.ceil((end - today) / 86400000);
         const overdue = item.status !== "done" && diff < 0;
-        const typeLabel =
-          { work: "캐스트피아", personal: "개인", loind: "로인드" }[
-            item.type
-          ] || "기타";
+        const category = getCategory(item.type);
+        const typeLabel = category.name;
         const statusLabel =
           { planned: "예정", progress: "진행 중", done: "완료" }[item.status] ||
           "예정";
@@ -2847,7 +3402,9 @@
           item.id
         }">
           <div class="schedule-meta">
-            <span class="type-chip ${item.type}">${typeLabel}</span>
+            <span class="type-chip" style="color:${
+              category.color
+            }">${escapeHtml(typeLabel)}</span>
             <span>${dateText}</span>
             <span>· ${statusLabel}</span>
           </div>
@@ -2923,9 +3480,10 @@
         const monthPrefix = `${viewDate.getFullYear()}-${pad(
           viewDate.getMonth() + 1
         )}`;
+        const primaryId = sortedCategories()[0]?.id;
         const projects = schedules.filter(
           (item) =>
-            (item.type === "personal" || item.type === "loind") &&
+            item.type !== primaryId &&
             (item.startDate.startsWith(monthPrefix) ||
               item.endDate.startsWith(monthPrefix))
         );
@@ -2947,6 +3505,7 @@
         $("startDate").value = dateKey;
         $("endDate").value = dateKey;
         $("status").value = "planned";
+        $("type").value = sortedCategories()[0]?.id || "work";
         $("modalWrap").classList.add("open");
         setTimeout(() => $("title").focus(), 20);
       }
@@ -3028,6 +3587,45 @@
         }
       });
 
+      function activateSummaryCard(action) {
+        const categoryItems = sortedCategories();
+        const primaryId = categoryItems[0]?.id;
+
+        if (action === "today") {
+          currentFilter = "all";
+          selectedDate = formatDateKey(today);
+          viewDate = new Date(today.getFullYear(), today.getMonth(), 1);
+        } else if (action === "primary") {
+          currentFilter = primaryId || "all";
+        } else if (action === "other") {
+          currentFilter = "__other__";
+        } else if (action === "due") {
+          currentFilter = "__due__";
+        }
+
+        renderCategoryControls();
+        render();
+        document
+          .querySelector(".calendar-card")
+          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      document.querySelectorAll("[data-summary-action]").forEach((card) => {
+        card.addEventListener("click", () =>
+          activateSummaryCard(card.dataset.summaryAction)
+        );
+        card.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            activateSummaryCard(card.dataset.summaryAction);
+          }
+        });
+      });
+
+      $("mobileLoginBtn").addEventListener("click", login);
+      $("mobileLogoutBtn").addEventListener("click", logout);
+      $("mobileSettingsBtn").addEventListener("click", openCategoryModal);
+
       $("loginBtn").addEventListener("click", login);
       $("logoutBtn").addEventListener("click", logout);
       $("openModalBtn").addEventListener("click", () =>
@@ -3052,19 +3650,39 @@
         render();
       });
 
-      document.querySelectorAll(".top-nav button").forEach((button) => {
-        button.addEventListener("click", () => {
-          document
-            .querySelectorAll(".top-nav button")
-            .forEach((btn) => btn.classList.remove("active"));
-          button.classList.add("active");
-          currentFilter = button.dataset.filter;
-          render();
-        });
+      $("categorySettingsBtn").addEventListener("click", openCategoryModal);
+      $("closeCategoryModalBtn").addEventListener("click", closeCategoryModal);
+      $("cancelCategoryBtn").addEventListener("click", closeCategoryModal);
+      $("categoryModalWrap").addEventListener("click", (e) => {
+        if (e.target.id === "categoryModalWrap") closeCategoryModal();
+      });
+      $("saveCategoryBtn").addEventListener("click", async () => {
+        if (!requireLogin()) return;
+        const cleaned = editingCategories.map((item, index) => ({
+          ...item,
+          name: item.name.trim() || `일정 ${index + 1}`,
+          order: index,
+        }));
+        try {
+          setSyncState("loading", "설정 저장 중");
+          await setDoc(
+            doc(db, "users", currentUser.uid, "settings", "categories"),
+            { items: cleaned, updatedAt: serverTimestamp() },
+            { merge: true }
+          );
+          closeCategoryModal();
+        } catch (error) {
+          console.error(error);
+          setSyncState("error", "설정 저장 실패");
+          alert("카테고리 설정을 저장하지 못했습니다.");
+        }
       });
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape") closeModal();
+        if (e.key === "Escape") {
+          closeModal();
+          closeCategoryModal();
+        }
       });
       $("todayText").textContent = new Intl.DateTimeFormat("ko-KR", {
         year: "numeric",
@@ -3093,6 +3711,7 @@
         }
       });
 
+      renderCategoryControls();
       render();
       initializeFirebase();
     </script>
