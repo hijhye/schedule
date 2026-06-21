@@ -1799,6 +1799,473 @@
         }
       }
     </style>
+
+    <style id="responsive-final-upgrade">
+      /* 모바일은 데스크톱 축소판이 아니라 별도 정보 구조로 재설계 */
+      html,
+      body {
+        max-width: 100%;
+        overflow-x: hidden;
+      }
+      body {
+        -webkit-text-size-adjust: 100%;
+      }
+      button,
+      input,
+      select,
+      textarea {
+        min-width: 0;
+      }
+      .app-header,
+      .main,
+      .dashboard,
+      .calendar-card,
+      .right-column {
+        min-width: 0;
+      }
+      .calendar-grid,
+      .weekdays {
+        min-width: 0;
+      }
+      .day,
+      .calendar-event,
+      .schedule-name {
+        min-width: 0;
+      }
+
+      @media (max-width: 1180px) {
+        .app-header {
+          left: 16px;
+          right: 16px;
+          grid-template-columns: 150px minmax(0, 1fr) auto;
+          gap: 18px;
+        }
+        .main {
+          width: 100%;
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+        .dashboard {
+          grid-template-columns: minmax(0, 1fr) 300px;
+          gap: 26px;
+        }
+        .day {
+          min-height: 104px;
+        }
+      }
+
+      @media (max-width: 960px) {
+        .dashboard {
+          grid-template-columns: 1fr;
+        }
+        .right-column {
+          position: static;
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 24px;
+        }
+        .focus-card {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 760px) {
+        body {
+          background: #f7f8fb;
+        }
+
+        .app-header {
+          position: sticky;
+          left: auto;
+          right: auto;
+          top: 0;
+          width: 100%;
+          min-height: 0;
+          height: auto;
+          padding: 13px 16px 0;
+          display: grid;
+          grid-template-columns: 1fr auto;
+          gap: 11px 12px;
+          border: 0;
+          border-bottom: 1px solid #e2e5ed;
+          border-radius: 0;
+          background: rgba(255, 255, 255, 0.96);
+          box-shadow: none;
+          backdrop-filter: blur(16px);
+          -webkit-backdrop-filter: blur(16px);
+          transform: none !important;
+          opacity: 1 !important;
+        }
+
+        .app-header.header-hidden,
+        .app-header.header-solid {
+          transform: none !important;
+          opacity: 1 !important;
+          box-shadow: none;
+        }
+
+        .wordmark {
+          align-self: center;
+          font-size: 18px;
+          letter-spacing: 0.04em;
+        }
+
+        .header-account {
+          align-self: center;
+          gap: 7px;
+        }
+
+        .sync-state,
+        .account-name,
+        .account-photo {
+          display: none !important;
+        }
+
+        .login-btn,
+        .logout-btn {
+          height: 34px;
+          padding: 0 11px;
+          border-radius: 4px;
+          font-size: 10px;
+        }
+
+        .top-nav {
+          grid-column: 1 / -1;
+          display: flex;
+          justify-content: flex-start;
+          gap: 22px;
+          width: calc(100% + 32px);
+          margin-left: -16px;
+          padding: 0 16px;
+          overflow-x: auto;
+          background: transparent;
+          border: 0;
+          border-radius: 0;
+          scrollbar-width: none;
+        }
+
+        .top-nav::-webkit-scrollbar {
+          display: none;
+        }
+
+        .top-nav button {
+          flex: 0 0 auto;
+          padding: 12px 0 11px;
+          border-radius: 0;
+          font-size: 12px;
+          font-weight: 800;
+          box-shadow: none !important;
+        }
+
+        .top-nav button::after {
+          bottom: 5px;
+          height: 2px;
+        }
+
+        .main {
+          width: 100%;
+          padding: 24px 16px 34px;
+        }
+
+        .topbar {
+          align-items: flex-start;
+          gap: 14px;
+          margin-bottom: 22px;
+          padding: 0;
+        }
+
+        .topbar::after {
+          display: none;
+        }
+        .topbar h1 {
+          margin-bottom: 5px;
+          font-size: 27px;
+        }
+        .today-text {
+          font-size: 11px;
+        }
+
+        .add-btn {
+          flex: 0 0 auto;
+          min-width: 0;
+          min-height: 40px;
+          padding: 0 13px;
+          border-radius: 4px;
+          font-size: 11px;
+        }
+
+        .summary-grid {
+          display: flex;
+          gap: 10px;
+          width: calc(100% + 16px);
+          margin: 0 0 28px;
+          padding: 0 16px 3px 0;
+          overflow-x: auto;
+          border: 0;
+          background: transparent;
+          scroll-snap-type: x proximity;
+          scrollbar-width: none;
+        }
+
+        .summary-grid::-webkit-scrollbar {
+          display: none;
+        }
+
+        .summary-card {
+          flex: 0 0 158px;
+          min-height: 94px;
+          padding: 16px;
+          border: 1px solid #e1e4ec !important;
+          border-radius: 8px !important;
+          background: #fff;
+          scroll-snap-align: start;
+        }
+
+        .summary-card span {
+          min-height: 27px;
+          display: block;
+          font-size: 10px;
+          line-height: 1.35;
+        }
+
+        .summary-value {
+          margin-top: 10px;
+          font-size: 27px;
+        }
+
+        .dashboard {
+          gap: 34px;
+        }
+
+        .calendar-head {
+          min-height: 0;
+          padding: 0 0 13px;
+        }
+
+        .calendar-head h2 {
+          font-size: 20px;
+        }
+        .calendar-head h2::before {
+          margin-bottom: 5px;
+        }
+
+        .month-control {
+          gap: 3px;
+        }
+        .icon-btn,
+        .today-btn {
+          height: 31px;
+        }
+        .icon-btn {
+          width: 31px;
+        }
+
+        .weekdays {
+          border-top: 1px solid #d8dce5;
+          border-bottom: 1px solid #d8dce5;
+        }
+
+        .weekday {
+          height: 34px;
+          padding: 10px 2px 8px;
+          border-bottom: 0;
+          font-size: 9px;
+        }
+
+        .day {
+          position: relative;
+          min-height: 78px;
+          padding: 6px 4px 7px;
+          border-right: 1px solid #e2e5ec;
+          border-top: 1px solid #e2e5ec;
+        }
+
+        .day:nth-child(7n + 1) {
+          border-left: 0;
+        }
+        .day:nth-child(7n) {
+          border-right: 0;
+        }
+
+        .day-number {
+          width: 22px;
+          height: 22px;
+          font-size: 9px;
+        }
+
+        .day-events {
+          display: flex;
+          flex-direction: column;
+          gap: 3px;
+          margin-top: 5px;
+        }
+
+        .calendar-event {
+          height: 4px;
+          padding: 0;
+          border: 0;
+          border-radius: 999px;
+          font-size: 0;
+          opacity: 0.86;
+        }
+
+        .calendar-event.work {
+          background: #4b93c9 !important;
+        }
+        .calendar-event.personal {
+          background: #8376d2 !important;
+        }
+        .calendar-event.loind {
+          background: #4aa0aa !important;
+        }
+        .more-count {
+          padding: 0;
+          font-size: 8px;
+        }
+
+        .right-column {
+          grid-template-columns: 1fr;
+          gap: 30px;
+        }
+
+        .focus-card {
+          grid-column: auto;
+        }
+
+        .list-title,
+        .focus-card h3 {
+          padding-bottom: 10px;
+        }
+
+        .schedule-item {
+          min-height: 66px;
+          padding: 13px 30px 13px 0;
+        }
+
+        .schedule-meta {
+          gap: 4px;
+          margin-bottom: 7px;
+        }
+        .schedule-name {
+          font-size: 13px;
+        }
+
+        .modal-wrap {
+          align-items: end;
+          padding: 0;
+        }
+
+        .modal {
+          width: 100%;
+          max-height: 92dvh;
+          padding: 21px 18px calc(18px + env(safe-area-inset-bottom));
+          border-radius: 18px 18px 0 0;
+        }
+
+        .modal-head {
+          margin-bottom: 17px;
+        }
+        .form-grid {
+          grid-template-columns: 1fr;
+          gap: 12px;
+        }
+        .field.full {
+          grid-column: auto;
+        }
+        .field input,
+        .field select,
+        .field textarea {
+          min-height: 46px;
+          font-size: 16px;
+        }
+        .field textarea {
+          min-height: 96px;
+        }
+
+        .form-actions {
+          position: sticky;
+          bottom: calc(-18px - env(safe-area-inset-bottom));
+          margin: 18px -18px 0;
+          padding: 12px 18px calc(18px + env(safe-area-inset-bottom));
+          background: rgba(255, 255, 255, 0.97);
+          border-top: 1px solid #e6e8ee;
+        }
+
+        .cancel-btn,
+        .save-btn {
+          flex: 1;
+          min-height: 46px;
+        }
+      }
+
+      @media (max-width: 430px) {
+        .main {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .app-header {
+          padding-left: 12px;
+          padding-right: 12px;
+        }
+        .top-nav {
+          width: calc(100% + 24px);
+          margin-left: -12px;
+          padding-left: 12px;
+          padding-right: 12px;
+          gap: 18px;
+        }
+        .topbar {
+          gap: 10px;
+        }
+        .topbar h1 {
+          font-size: 24px;
+        }
+        .add-btn {
+          padding: 0 10px;
+        }
+        .summary-grid {
+          width: calc(100% + 12px);
+        }
+        .summary-card {
+          flex-basis: 145px;
+        }
+        .calendar-head h2 {
+          font-size: 18px;
+        }
+        .day {
+          min-height: 70px;
+          padding-left: 3px;
+          padding-right: 3px;
+        }
+        .weekday {
+          font-size: 8px;
+        }
+      }
+
+      @media (max-width: 350px) {
+        .wordmark {
+          font-size: 16px;
+        }
+        .login-btn,
+        .logout-btn {
+          padding: 0 8px;
+        }
+        .topbar h1 {
+          font-size: 22px;
+        }
+        .today-text {
+          font-size: 10px;
+        }
+        .add-btn {
+          font-size: 10px;
+        }
+        .summary-card {
+          flex-basis: 136px;
+        }
+        .day {
+          min-height: 66px;
+        }
+      }
+    </style>
   </head>
   <body>
     <div class="app">
@@ -2015,6 +2482,8 @@
         getAuth,
         GoogleAuthProvider,
         signInWithPopup,
+        signInWithRedirect,
+        getRedirectResult,
         signOut,
         onAuthStateChanged,
         setPersistence,
@@ -2094,6 +2563,15 @@
           auth = getAuth(app);
           await setPersistence(auth, browserLocalPersistence);
 
+          try {
+            await getRedirectResult(auth);
+          } catch (error) {
+            console.error(error);
+            if (error.code === "auth/unauthorized-domain") {
+              setSyncState("error", "도메인 승인 필요");
+            }
+          }
+
           onAuthStateChanged(auth, (user) => {
             currentUser = user;
             updateAccountUI(user);
@@ -2147,15 +2625,47 @@
 
       async function login() {
         if (!auth) return;
+
+        const provider = new GoogleAuthProvider();
+        provider.setCustomParameters({ prompt: "select_account" });
+
         try {
-          const provider = new GoogleAuthProvider();
-          provider.setCustomParameters({ prompt: "select_account" });
+          setSyncState("loading", "로그인 중");
+
+          const useRedirect =
+            window.matchMedia("(max-width: 760px)").matches ||
+            /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+          if (useRedirect) {
+            await signInWithRedirect(auth, provider);
+            return;
+          }
+
           await signInWithPopup(auth, provider);
         } catch (error) {
           console.error(error);
-          if (error.code !== "auth/popup-closed-by-user") {
+
+          if (
+            error.code === "auth/popup-blocked" ||
+            error.code === "auth/operation-not-supported-in-this-environment"
+          ) {
+            await signInWithRedirect(auth, provider);
+            return;
+          }
+
+          setSyncState("error", "로그인 실패");
+
+          if (error.code === "auth/configuration-not-found") {
             alert(
-              "Google 로그인에 실패했습니다. Firebase Authentication 설정을 확인하세요."
+              "Firebase Authentication이 아직 활성화되지 않았습니다. Firebase 콘솔에서 Authentication을 시작하고 Google 로그인 제공업체를 사용 설정하세요."
+            );
+          } else if (error.code === "auth/unauthorized-domain") {
+            alert(
+              "현재 도메인이 Firebase 승인 도메인에 없습니다. Authentication 설정의 승인된 도메인에 현재 사이트 도메인을 추가하세요."
+            );
+          } else if (error.code !== "auth/popup-closed-by-user") {
+            alert(
+              `Google 로그인에 실패했습니다.\n${error.code || error.message}`
             );
           }
         }
