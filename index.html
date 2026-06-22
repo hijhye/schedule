@@ -2299,13 +2299,65 @@
     #mobileLoginBtn:active { transform: scale(.98); }
   }
 </style>
+
+<style id="daily-verse-header-style">
+  .daily-verse {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    padding: 0 18px;
+    color: #4f5565;
+    text-align: center;
+  }
+  .daily-verse-label {
+    flex: 0 0 auto;
+    padding: 5px 8px;
+    border: 1px solid #dfe3ee;
+    color: #777dd1;
+    background: #f8f8ff;
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .04em;
+    white-space: nowrap;
+  }
+  .daily-verse p {
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .daily-verse strong {
+    margin-left: 6px;
+    color: #9298a7;
+    font-size: 9px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+  @media (max-width: 1180px) {
+    .daily-verse { padding: 0 8px; gap: 9px; }
+    .daily-verse p { font-size: 10px; }
+  }
+  @media (max-width: 860px) {
+    .daily-verse { display: none; }
+  }
+</style>
+
 </head>
   <body>
     <div class="app">
       <header class="app-header">
         <a class="wordmark" href="#" aria-label="Schedule 홈">SCHEDULE</a>
 
-        <nav class="top-nav" id="categoryNav" aria-label="일정 구분"></nav>
+        <div class="daily-verse" aria-label="오늘의 좋은 말씀">
+          <span class="daily-verse-label">오늘의 말씀</span>
+          <p id="dailyVerseText"></p>
+        </div>
 
         <div class="header-account">
           <div class="sync-state" title="Firebase 연결 상태">
@@ -2594,19 +2646,31 @@
         return `rgba(${(num>>16)&255},${(num>>8)&255},${num&255},${alpha})`;
       }
 
+      const dailyVerses = [
+        { text: "두려워하지 말라 내가 너와 함께 함이라.", ref: "이사야 41:10" },
+        { text: "내게 능력 주시는 자 안에서 내가 모든 것을 할 수 있느니라.", ref: "빌립보서 4:13" },
+        { text: "너의 행사를 여호와께 맡기라 그리하면 네가 경영하는 것이 이루어지리라.", ref: "잠언 16:3" },
+        { text: "항상 기뻐하라 쉬지 말고 기도하라 범사에 감사하라.", ref: "데살로니가전서 5:16-18" },
+        { text: "여호와는 나의 목자시니 내게 부족함이 없으리로다.", ref: "시편 23:1" },
+        { text: "사랑 안에 두려움이 없고 온전한 사랑이 두려움을 내쫓나니.", ref: "요한일서 4:18" },
+        { text: "너는 마음을 다하여 여호와를 신뢰하고 네 명철을 의지하지 말라.", ref: "잠언 3:5" },
+        { text: "우리가 선을 행하되 낙심하지 말지니 때가 이르매 거두리라.", ref: "갈라디아서 6:9" },
+        { text: "내가 너를 지명하여 불렀나니 너는 내 것이라.", ref: "이사야 43:1" },
+        { text: "평안을 너희에게 끼치노니 곧 나의 평안을 너희에게 주노라.", ref: "요한복음 14:27" },
+        { text: "여호와께서 너를 지켜 모든 환난을 면하게 하시며 또 네 영혼을 지키시리로다.", ref: "시편 121:7" },
+        { text: "사람이 마음으로 자기의 길을 계획할지라도 그의 걸음을 인도하시는 이는 여호와시니라.", ref: "잠언 16:9" }
+      ];
+
+      function renderDailyVerse() {
+        const verseBox = $("dailyVerseText");
+        if (!verseBox) return;
+        const dateKey = Number(`${today.getFullYear()}${pad(today.getMonth() + 1)}${pad(today.getDate())}`);
+        const verse = dailyVerses[dateKey % dailyVerses.length];
+        verseBox.innerHTML = `${escapeHtml(verse.text)} <strong>${escapeHtml(verse.ref)}</strong>`;
+      }
+
       function renderCategoryControls() {
         const items = sortedCategories();
-        const nav = $("categoryNav");
-        nav.innerHTML = `<button data-filter="all" class="${currentFilter === "all" ? "active" : ""}">전체</button>` + items.map(cat =>
-          `<button data-filter="${cat.id}" class="${currentFilter === cat.id ? "active" : ""}">${escapeHtml(cat.name)}</button>`
-        ).join("");
-        nav.querySelectorAll("button").forEach(button => {
-          button.addEventListener("click", () => {
-            currentFilter = button.dataset.filter;
-            renderCategoryControls();
-            render();
-          });
-        });
 
         const typeSelect = $("type");
         const selected = typeSelect.value;
@@ -3303,6 +3367,7 @@
         }
       });
 
+      renderDailyVerse();
       renderCategoryControls();
       render();
       initializeFirebase();
